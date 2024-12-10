@@ -1,0 +1,43 @@
+.bold {
+    font-size: 5vw;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.btn {
+    width: 50%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.desc {
+    float: right
+}
+
+.total {
+    font-size: 30px;
+}
+
+.income,
+.past_incomes,
+.future_incomes {
+    color: white;
+}
+
+.income {
+    background-color: rgb(87, 191, 87);
+}
+
+.btn-success {
+    background-color: rgb(87, 191, 87)
+}
+
+.past_incomes {
+    background-color: rgb(72, 150, 72);
+}
+
+.future_incomes {
+    background-color: rgb(142, 218, 142);
+}

@@ -1,0 +1,38 @@
+<h1 class="h1 text-center m-4">{{title}}</h1>
+<div class="row md-2">
+    <div class="card mx-auto d-block p-1 col-md-10">
+        <div class="card-header text-center">Montant disponible</div>
+        <div class="card-body">
+            <h5 class="card-title text-center bold" [ngStyle]="{color:available_amount < 0 ? 'red': 'green'}">
+                {{available_amount | number: '1.2-2'}} €</h5>
+        </div>
+    </div>
+</div>
+<div class="row m-2">
+    <div class="card mx-auto d-block p-1 col-md-5">
+        <div class="card-header text-center expenses">Dépenses du mois</div>
+        <div class="card-body">
+            <h5 class="card-title text-center bold" [ngStyle]="{color:'rgb(243, 77, 77)'}">{{expenses_amount}} €</h5>
+        </div>
+    </div>
+    <div class="card mx-auto d-block p-1 col-md-5">
+        <div class="card-header text-center incomes">Revenus du mois</div>
+        <div class="card-body">
+            <h5 class="card-title text-center bold" [ngStyle]="{color:'rgb(87, 191, 87)'}">{{incomes_amount}} €</h5>
+        </div>
+    </div>
+</div>
+<div class="row m-2">
+    <div class="card mx-auto d-block p-1 col-md-5">
+        <div class="card-header text-center savings">Epargne disponible</div>
+        <div class="card-body">
+            <h5 class="card-title text-center bold" [ngStyle]="{color:'rgb(110, 110, 239)'}">{{savings}} €</h5>
+        </div>
+    </div>
+    <div class="card mx-auto d-block p-1 col-md-5">
+        <div class="card-header text-center projects">Projets</div>
+        <div class="card-body">
+            <h5 class="card-title text-center bold" [ngStyle]="{color:'rgb(215, 218, 32)'}">Card title</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<h1 class="h1 text-center m-4">{{title}}</h1>
+<div class="row md-2">
+    <div class="card mx-auto col-md-5 d-flex flex-column p-1">
+        <div class="card-header text-center expense">Dépense mensuelle totale</div>
+        <div class="list-group list-group-flush">
+            <div class="list-group-item text-center bold" [ngStyle]="{color:'rgb(243, 77, 77)'}">{{totalRevenus}} €
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <h2 class="h5 text-center">Ajouter une dépense ou un revenu</h2>
+        <div>Montant : <input type="number" class="form-control" placeholder="Entrer un montant" id="input"
+                [(ngModel)]="inputValue" required></div>
+        <div>Catégorie : <input type="text" pattern="[^\d]*" required [(ngModel)]="inputCategory"
+                placeholder="Ex : Remboursement" class="form-control">
+        </div>
+        <button class="btn btn-danger" (click)="addExpense()">Dépense</button>
+    </div>
+</div>
+<div class="row md-2">
+    <div class="card mx-auto col-md-5 d-flex flex-column p-1">
+        <div class="card-header text-center past_expenses">Dernières dépenses</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(197, 57, 57)'}">Total : {{totalPastExpenses}} €</div>
+        <ul class="list-group list-group-flush" id="last_expense">
+            <li class="list-group-item" *ngFor="let transaction of pastExpenses">{{transaction.amount}} €
+                <div class='desc'>{{transaction.description}}</div>
+            </li>
+        </ul>
+    </div>
+    <div class="card mx-auto col-md-5 d-flex flex-column p-1">
+        <div class="card-header text-center future_expenses">Dépenses à venir</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(237, 121, 121)'}">Total : {{totalFutureExpenses}} €</div>
+        <ul class='list-group list-group-flush'>
+            <li class="list-group-item" *ngFor="let transaction of futureExpenses">{{transaction.amount}} €
+                <div class='desc'>{{transaction.description}}</div>
+            </li>
+        </ul>
+    </div>
+</div>

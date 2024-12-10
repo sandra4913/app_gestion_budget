@@ -1,0 +1,30 @@
+.card {
+    margin: 10px;
+}
+
+.bold {
+    font-size: 4vw;
+}
+
+.expenses,
+.incomes,
+.savings,
+.projects {
+    color: white;
+}
+
+.expenses {
+    background-color: rgb(243, 77, 77);
+}
+
+.incomes {
+    background-color: rgb(87, 191, 87);
+}
+
+.savings {
+    background-color: rgb(110, 110, 239);
+}
+
+.projects {
+    background-color: rgb(215, 218, 32);
+}

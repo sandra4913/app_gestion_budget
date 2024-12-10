@@ -1,0 +1,49 @@
+a {
+    height: 20vh;
+    font-size: large;
+    color: rgb(73, 72, 72)
+}
+
+a:hover {
+    color: black
+}
+
+.dashboard {
+    background-color: rgba(220, 216, 233, 0.8);
+}
+
+.dashboard:hover {
+    background-color: rgb(220, 216, 233);
+}
+
+.expenses {
+    background-color: rgba(214, 201, 231, 0.8)
+}
+
+.expenses:hover {
+    background-color: rgb(214, 201, 231);
+}
+
+.incomes {
+    background-color: rgba(195, 197, 244, 0.8)
+}
+
+.incomes:hover {
+    background-color: rgb(195, 197, 244);
+}
+
+.savings {
+    background-color: rgba(159, 197, 244, 0.8)
+}
+
+.savings:hover {
+    background-color: rgb(159, 197, 244);
+}
+
+.projects {
+    background-color: rgba(195, 223, 244, 0.8)
+}
+
+.projects:hover {
+    background-color: rgb(195, 223, 244);
+}

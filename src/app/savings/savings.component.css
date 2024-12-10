@@ -1,0 +1,35 @@
+.bold {
+    font-size: 5vw;
+}
+
+.row {
+    margin-bottom: 40px;
+}
+
+.btn {
+    width: 50%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.desc {
+    float: right
+}
+
+.savings,
+.past_expenses,
+.past_incomes {
+    color: white;
+}
+
+.savings {
+    background-color: rgb(110, 110, 239);
+}
+
+.past_incomes {
+    background-color: rgb(163, 163, 224);
+}
+
+.past_expenses {
+    background-color: rgb(58, 58, 224);
+}
