@@ -103,6 +103,21 @@ export class IncomesComponent implements OnInit {
     }
   }
 
+  updateIncome(income: any) {
+    console.log('bouton de modification cliqué');
+    const newAmount = prompt('Saisissez le nouveau montant');
+    if (newAmount) {
+      const parsedAmount = parseFloat(newAmount);
+      if (!isNaN(parsedAmount) && parsedAmount > 0) {
+        const updatedIncome = { id: income.id, amount: parsedAmount, category: 'ponctuel', statut: 'effectuée', date: income.date, description: income.description };
+        this.transactionService.updateIncome(updatedIncome).subscribe(() => {
+          income.amount = parsedAmount;
+        })
+      }
+    }
+  }
+
+
   isFirstDayOfMonth(): boolean {
     const today = new Date();
     return today.getDate() === 1;
@@ -127,10 +142,6 @@ export class IncomesComponent implements OnInit {
     });
   }
 
-
-  updateIncome(income: any) {
-    console.log('bouton de modification cliqué');
-  }
 
   categorizeIncomes() {
     const today = new Date();

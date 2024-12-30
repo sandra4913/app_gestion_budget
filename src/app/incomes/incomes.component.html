@@ -3,7 +3,8 @@
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center income">Revenu mensuel total</div>
         <div class="list-group list-group-flush">
-            <div class="list-group-item text-center bold" [ngStyle]="{color:'rgb(87, 191, 87)'}">{{totalIncomes}} €
+            <div class="list-group-item text-center bold" [ngStyle]="{color:'rgb(87, 191, 87)'}">{{totalIncomes |
+                number:'1.2-2':'fr-FR'}} €
             </div>
         </div>
     </div>
@@ -20,11 +21,13 @@
 <div class="row md-2">
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center past_incomes">Derniers revenus</div>
-        <div class="text-center total" [ngStyle]="{color:'rgb(72, 150, 72)'}">Total : {{totalPastIncomes}} €</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(72, 150, 72)'}">Total : {{totalPastIncomes|
+            number:'1.2-2':'fr-FR'}} €</div>
         <ul class="list-group list-group-flush" id="last_expense">
             <li class="list-group-item" *ngFor="let income of pastIncomes" (mouseenter)="index = income"
                 (mouseleave)="index = -1">
-                {{income.amount}} €
+                {{income.amount|
+                number:'1.2-2':'fr-FR'}} €
                 <div class='desc'>{{income.description}}</div>
                 <div *ngIf="index === income">
                     <button class="btn btn-danger" (click)="deleteIncome(income)">Supprimer</button>
@@ -35,9 +38,11 @@
     </div>
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center future_incomes">Revenus à venir</div>
-        <div class="text-center total" [ngStyle]="{color:'rgb(142, 218, 142)'}">Total : {{totalFutureIncomes}} €</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(142, 218, 142)'}">Total : {{totalFutureIncomes|
+            number:'1.2-2':'fr-FR'}} €</div>
         <ul class='list-group list-group-flush'>
-            <li class="list-group-item" *ngFor="let income of futureIncomes">{{income.amount}} €
+            <li class="list-group-item" *ngFor="let income of futureIncomes">{{income.amount|
+                number:'1.2-2':'fr-FR'}} €
                 <div class='desc'>{{income.description}}</div>
             </li>
         </ul>

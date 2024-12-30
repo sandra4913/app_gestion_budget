@@ -12,6 +12,12 @@ import { ProjectsComponent } from './projects/projects.component';
 import { SavingsComponent } from './savings/savings.component';
 import { FormsModule } from '@angular/forms';
 
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+// Enregistrer la locale française
+registerLocaleData(localeFr, 'fr-FR');
+
 @NgModule({
   declarations: [
     AppComponent,

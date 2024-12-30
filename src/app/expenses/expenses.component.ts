@@ -18,6 +18,8 @@ export class ExpensesComponent implements OnInit {
   inputCategory: string = '';
   totalPastExpenses: number = 0;
   totalFutureExpenses: number = 0;
+  index: number = -1;
+
 
   constructor(
     private transactionService: TransactionService,
@@ -146,6 +148,37 @@ export class ExpensesComponent implements OnInit {
         this.transactionService.updateTransaction(transaction).subscribe();
       }
     });
+  }
+
+  deleteExpense(expense: any) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette dépense ?')) {
+      // Appel au service pour supprimer le revenu
+      this.transactionService.deleteTransaction(expense.id).subscribe(
+        () => {
+          // Mise à jour de la liste des revenus : suppression locale
+          this.pastExpenses = this.pastExpenses.filter((item) => item.id !== expense.id);
+          // Mise à jour du total des revenus
+          this.totalPastExpenses -= expense.amount;
+        },
+        (error) => {
+          console.error('Erreur lors de la suppression de la dépense :', error);
+        }
+      );
+    }
+  }
+
+  updateExpense(expense: any) {
+    console.log('bouton de modification cliqué');
+    const newAmount = prompt('Saisissez le nouveau montant');
+    if (newAmount) {
+      const parsedAmount = parseFloat(newAmount);
+      if (!isNaN(parsedAmount) && parsedAmount > 0) {
+        const updatedExpense = { id: expense.id, amount: parsedAmount, category: expense.category, statut: expense.statut, date: expense.date, description: expense.description };
+        this.transactionService.updateTransaction(updatedExpense).subscribe(() => {
+          expense.amount = parsedAmount;
+        })
+      }
+    }
   }
 
 }

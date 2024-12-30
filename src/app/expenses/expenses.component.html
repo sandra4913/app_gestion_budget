@@ -3,7 +3,8 @@
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center expense">Dépense mensuelle totale</div>
         <div class="list-group list-group-flush">
-            <div class="list-group-item text-center bold" [ngStyle]="{color:'rgb(243, 77, 77)'}">{{totalRevenus}} €
+            <div class="list-group-item text-center bold" [ngStyle]="{color:'rgb(243, 77, 77)'}">{{totalRevenus |
+                number:'1.2-2':'fr-FR'}} €
             </div>
         </div>
     </div>
@@ -20,18 +21,27 @@
 <div class="row md-2">
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center past_expenses">Dernières dépenses</div>
-        <div class="text-center total" [ngStyle]="{color:'rgb(197, 57, 57)'}">Total : {{totalPastExpenses}} €</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(197, 57, 57)'}">Total : {{totalPastExpenses |
+            number:'1.2-2':'fr-FR'}} €</div>
         <ul class="list-group list-group-flush" id="last_expense">
-            <li class="list-group-item" *ngFor="let transaction of pastExpenses">{{transaction.amount}} €
+            <li class="list-group-item" *ngFor="let transaction of pastExpenses" (mouseenter)="index = transaction"
+                (mouseleave)="index = -1">{{transaction.amount|
+                number:'1.2-2':'fr-FR'}} €
                 <div class='desc'>{{transaction.description}}</div>
+                <div *ngIf="index === transaction">
+                    <button class="btn btn-danger" (click)="deleteExpense(transaction)">Supprimer</button>
+                    <button class="btn btn-info" (click)="updateExpense(transaction)">Modifier</button>
+                </div>
             </li>
         </ul>
     </div>
     <div class="card mx-auto col-md-5 d-flex flex-column p-1">
         <div class="card-header text-center future_expenses">Dépenses à venir</div>
-        <div class="text-center total" [ngStyle]="{color:'rgb(237, 121, 121)'}">Total : {{totalFutureExpenses}} €</div>
+        <div class="text-center total" [ngStyle]="{color:'rgb(237, 121, 121)'}">Total : {{totalFutureExpenses|
+            number:'1.2-2':'fr-FR'}} €</div>
         <ul class='list-group list-group-flush'>
-            <li class="list-group-item" *ngFor="let transaction of futureExpenses">{{transaction.amount}} €
+            <li class="list-group-item" *ngFor="let transaction of futureExpenses">{{transaction.amount |
+                number:'1.2-2':'fr-FR'}} €
                 <div class='desc'>{{transaction.description}}</div>
             </li>
         </ul>
